@@ -33,6 +33,14 @@ body {
   position: relative;
 }
 
+.nav-header li {
+  display: flex;
+  flex: 1 1 60rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  flex-direction: row;
+}
 /* Landing */
 .landing {
   min-height: 90vh;
