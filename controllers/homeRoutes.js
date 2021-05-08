@@ -5,7 +5,11 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
+<<<<<<< HEAD
     const listData = await List.findAll({
+=======
+    const projectData = await List.findAll({
+>>>>>>> bebc77706c16087e5921bf5c645a00d1b28a0a38
       include: [
         {
           model: User,
@@ -38,7 +42,11 @@ router.get('/list/:id', async (req, res) => {
       ],
     });
 
+<<<<<<< HEAD
     const list = listData.get({ plain: true });
+=======
+    const list = projectData.get({ plain: true });
+>>>>>>> bebc77706c16087e5921bf5c645a00d1b28a0a38
 
     res.render('list', {
       ...list,

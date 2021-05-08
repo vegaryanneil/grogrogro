@@ -1,24 +1,77 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+:root {
+  --primary-color: #3a6351;
+  --accent-color: #393232;
+  --button-color: #e48257;
+  --text-color: #f2edd7;
 }
-
-.no-button {
-  background: none;
-  border: none;
+/* Global Edits */
+* {
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: 'Oswald', serif;
+}
+
+/* Nav Bar  */
+#logo {
+  color: var(--text-color);
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
-  font-size: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.nav-header {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  position: relative;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+/* Landing */
+.landing {
+  min-height: 90vh;
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  background: var(--primary-color);
+}
+
+.landingText h1 {
+  font-family: 'Oswald', serif;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.landing-btn {
+  padding: 1rem 2rem;
+  background: var(--button-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 3px;
+  margin: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#landing-btn {
+  align-items: center;
+}
+/* Color Hierarchy in Text for Section */
+.emphasis {
+  color: var(--button-color);
 }

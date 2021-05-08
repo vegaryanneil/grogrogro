@@ -15,6 +15,10 @@ List.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+<<<<<<< HEAD:models/List.js
+=======
+
+>>>>>>> bebc77706c16087e5921bf5c645a00d1b28a0a38:models/Project.js
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,

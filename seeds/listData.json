@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "itemName": "Milk",
     "quantity": 1
   },
@@ -10,5 +11,17 @@
   {
     "itemName": "Chips",
     "quantity": 3
+=======
+    "Itemname": "Milk",
+    "quantiy": 1
+  },
+  {
+    "Itemname": "Cereal",
+    "quantity": 2
+  },
+  {
+    "Itemname": "Chips",
+    "quantiy": 3
+>>>>>>> bebc77706c16087e5921bf5c645a00d1b28a0a38
   }
 ]
