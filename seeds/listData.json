@@ -1,0 +1,14 @@
+[
+  {
+    "itemName": "Milk",
+    "quantity": 1
+  },
+  {
+    "itemName": "Cereal",
+    "quantity": 2
+  },
+  {
+    "itemName": "Chips",
+    "quantity": 3
+  }
+]
