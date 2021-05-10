@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
     // Serialize data so the template can read it
     const lists = listData.map((list) => list.get({ plain: true }));
     console.log('This is a lgo');
@@ -74,6 +73,27 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/testing', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const listData = await List.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+    // Serialize data so the template can read it
+    const lists = listData.map((list) => list.get({ plain: true }));
+    console.log('This is a lgo');
+    // Pass serialized data and session flag into template
+    res.render('testing');
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
