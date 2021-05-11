@@ -5,70 +5,55 @@
   --text-color: #f2edd7;
 }
 /* Global Edits */
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 body {
   background-color: var(--primary-color);
   font-family: 'Oswald', serif;
-  margin: 0px;
 }
 
 /* Nav Bar  */
-/* #logo {
+#logo {
   color: var(--text-color);
   font-family: 'Oswald', sans-serif;
   text-decoration: none;
-} */
+}
 
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  right: 10rem;
 }
 
-
-header::after {
-  content: '' ;
-  display: table;
-  clear: both;
+.navbar li {
+  display: inline-block;
+  position: relative;
+  padding: 0 1rem;
 }
 
-header h1 {
-  float: left;
-  color: white;
-}
-
-.navbar {
-  float:right;
-
-}
-
-.navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.navbar li{
+/* .navbar li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 35px;
   padding-bottom: 5px;
-
   position: relative;
-}
+} */
 
 .navbar a {
-  color: coral;
+  color: var(--text-color);
   text-decoration: none;
   text-transform: uppercase;
 }
 
-
-/* .nav-header {
+.navbar {
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -85,7 +70,7 @@ header h1 {
   align-items: center;
   list-style: none;
   flex-direction: row;
-} */
+}
 /* Landing */
 .landing {
   min-height: 70vh;
@@ -103,9 +88,9 @@ header h1 {
   font-size: 4rem;
   width: 60%;
   text-align: center;
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
-  /* justify-items: center; */
+  justify-items: center;
   margin: auto;
 }
 
@@ -123,14 +108,9 @@ header h1 {
   letter-spacing: 3px;
   margin: auto;
   margin-top: 3rem;
-  
   justify-content: center;
 }
 
-#landing-btn {
-  align-items: center;
-  display: flex;
-}
 /* Color Hierarchy in Text for Section */
 .emphasis {
   color: var(--button-color);
