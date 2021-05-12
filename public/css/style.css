@@ -92,6 +92,14 @@ nav {
   flex-direction: column;
 }
 
+/* space in span tag */
+
+span {
+  color: var(--button-color);
+  display: block;
+  margin: 0px 1rem;
+}
+
 /* Color Hierarchy in Text for Section */
 span {
   color: var(--button-color);
