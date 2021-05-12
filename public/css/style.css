@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
   font-family: 'Oswald', serif;
 }
 
@@ -21,40 +21,27 @@ body {
 nav {
   width: 80%;
   margin: auto;
-  display: flex;
-  align-items: center;
   min-height: 10vh;
-  padding: 2rem 0rem;
+  background-color: var(--primary-color);
+  box-shadow: none;
 }
 #logo {
-  flex: 1 1 20rem;
-}
-
-#logo a {
   color: var(--text-color);
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  text-decoration: none;
+  font-size: 2.25rem;
 }
 
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  flex: 0.5;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
+#nav-mobile a {
   color: var(--text-color);
   font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
 /* Landing */
-.landing {
-  min-height: 80vh;
+.main-content {
+  min-height: 90vh;
   margin: auto;
   width: 80%;
   display: flex;
@@ -64,11 +51,9 @@ nav {
 }
 
 .landingText h1 {
-  display: flex;
   font-family: 'Oswald', serif;
   font-size: 3rem;
   text-align: center;
-  justify-items: center;
   margin: auto;
 }
 
@@ -100,7 +85,39 @@ span {
   margin: 0px 1rem;
 }
 
+#login-btn {
+  background-color: var(--button-color);
+}
 /* Color Hierarchy in Text for Section */
 span {
   color: var(--button-color);
+}
+
+/* Login Page */
+.login-container {
+  background-color: var(--text-color);
+  display: flex;
+  padding-top: 0;
+}
+
+.login-form-container {
+  padding: 0 4rem;
+  justify-content: center;
+}
+
+.login-page-text {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-family: 'Oswald', serif;
+}
+
+.btn {
+  background-color: var(--button-color) !important;
+}
+
+/* about */
+.image {
+  height: 30%;
+  width: 80%;
+  background-image: url(/images/grocery-photo.jpg);
 }
