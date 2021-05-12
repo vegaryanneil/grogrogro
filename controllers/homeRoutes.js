@@ -4,20 +4,24 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data might pull into list page
-    // const listData = await List.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
-    // // Serialize data so the template can read it
-    // const lists = listData.map((list) => list.get({ plain: true }));
-    console.log('This is a lgo');
-    // Pass serialized data and session flag into template
     res.render('homepage');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// About Route
+router.get('/about', async (req, res) => {
+  try {
+    res.render('about');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+// Contact Route
+router.get('/contact', async (req, res) => {
+  try {
+    res.render('contact');
   } catch (err) {
     res.status(500).json(err);
   }
