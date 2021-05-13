@@ -11,7 +11,7 @@ List.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    item_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -21,10 +21,10 @@ List.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    quantity: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+    // quantity: {
+    //   type: DataTypes.FLOAT,
+    //   allowNull: false,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
