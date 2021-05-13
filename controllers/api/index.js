@@ -6,3 +6,4 @@ router.use('/users', userRoutes);
 router.use('/list', listRoutes);
 
 module.exports = router;
+// /api/list

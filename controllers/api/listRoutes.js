@@ -2,7 +2,21 @@ const router = require('express').Router();
 const { List } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.get('/create', async (req, res) => {
+  try {
+    const list = {
+      name:"fakename"
+    }
+    res.render('create', {list});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/create', withAuth, async (req, res) => {
+  // /api/lists
+  console.log('req.body', req.body);
+
   try {
     const newList = await List.create({
       ...req.body,
@@ -11,6 +25,7 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newList);
   } catch (err) {
+    console.log('ERROR!', err);
     res.status(400).json(err);
   }
 });
