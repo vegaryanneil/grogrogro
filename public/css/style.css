@@ -5,133 +5,136 @@
   --text-color: #f2edd7;
 }
 /* Global Edits */
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 body {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
   font-family: 'Oswald', serif;
-  margin: 0px;
 }
 
 /* Nav Bar  */
-/* #logo {
+
+nav {
+  width: 80%;
+  margin: auto;
+  min-height: 10vh;
+  background-color: var(--primary-color);
+  box-shadow: none;
+}
+#logo {
   color: var(--text-color);
   font-family: 'Oswald', sans-serif;
-  text-decoration: none;
-} */
-
-.container {
-  width: 80%;
-  margin: 0 auto;
+  font-size: 2.25rem;
 }
 
-
-header::after {
-  content: '' ;
-  display: table;
-  clear: both;
-}
-
-header h1 {
-  float: left;
-  color: white;
-}
-
-.navbar {
-  float:right;
-
-}
-
-.navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.navbar li{
-  display: inline-block;
-  margin-left: 70px;
-  padding-top: 35px;
-  padding-bottom: 5px;
-
-  position: relative;
-}
-
-.navbar a {
-  color: coral;
+#nav-mobile a {
+  color: var(--text-color);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-
-/* .nav-header {
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  margin: auto;
-  position: relative;
-}
-
-.nav-header li {
-  display: flex;
-  flex: 1 1 60rem;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  flex-direction: row;
-} */
 /* Landing */
-.landing {
+.main-content {
   min-height: 70vh;
-  margin: auto;
-  width: 100%;
+  margin: 0px 8rem;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--text-color);
-  background: var(--primary-color);
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+
+}
+
+#first-paragraph{
+  text-indent: 4%;
+  /* max-width: 90rem; */
+  text-align-last: center;
+}
+
+.second-content{
+  display: flex;
+  padding: 40px;
+  text-align-last: center;
 }
 
 .landingText h1 {
   font-family: 'Oswald', serif;
-  font-size: 4rem;
-  width: 60%;
+  font-size: 3rem;
   text-align: center;
-  /* display: flex; */
-  flex-direction: column;
-  /* justify-items: center; */
   margin: auto;
 }
 
 .landing-btn {
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   background: var(--button-color);
   border: none;
   color: var(--text-color);
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  color: var(--text-color);
   letter-spacing: 3px;
   margin: auto;
   margin-top: 3rem;
-  
   justify-content: center;
 }
 
 #landing-btn {
-  align-items: center;
   display: flex;
+  flex-direction: column;
+}
+
+/* space in span tag */
+
+span {
+  color: var(--button-color);
+  display: block;
+  margin: 0px 1rem;
+}
+
+#login-btn {
+  background-color: var(--button-color);
 }
 /* Color Hierarchy in Text for Section */
-.emphasis {
+span {
   color: var(--button-color);
+}
+
+/* Login Page */
+.login-container {
+  background-color: var(--text-color);
+  display: flex;
+  padding-top: 0;
+}
+
+.login-form-container {
+  padding: 0 4rem;
+  justify-content: center;
+}
+
+.login-page-text {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-family: 'Oswald', serif;
+}
+
+.btn {
+  background-color: var(--button-color) !important;
+}
+
+/* about */
+.image {
+  height: 30%;
+  width: 80%;
+  background-image: url(/images/grocery-photo.jpg);
 }

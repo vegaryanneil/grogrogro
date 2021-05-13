@@ -7,25 +7,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
-    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="css/style.css">
     <title>GroGroGro</title>
 </head>
 
 <body>
-  <header class="nav-header">
-    <h1><a href="#" id="logo">GroGroGro</a></h1>
-    <div class="nav-bar">
+  <header class="header">
+    <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo" id="logo">GroGroGro</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="login" id="login-btn">Login</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
+    </header>
 <!-- Landing Page -->
-<div class="landing">
-  <div class="landingText title">
-    <h1>The quick way to <span class="emphasis">create</span> and <span class="emphasis">share</span> a grocery shopping list. </h1>
-    <div id="landing-btn">
-    <a class="button landing-btn" href="#">Sign Up</a>
-    </div>
-  </div>
-  </div>
+<div>
+  {{{ body }}}
+</div>
 </body>
 </html>

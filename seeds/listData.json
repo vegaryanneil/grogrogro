@@ -1,14 +1,11 @@
 [
   {
-    "itemName": "Milk",
-    "quantity": 1
+    "name": "groceries"
   },
   {
-    "itemName": "Cereal",
-    "quantity": 2
+    "name": "school list"
   },
   {
-    "itemName": "Chips",
-    "quantity": 3
+    "name": "Car list"
   }
 ]
