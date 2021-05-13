@@ -2,16 +2,38 @@ const router = require('express').Router();
 const { List } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/create', async (req, res) => {
-  try {
-    const list = {
-      name:"fakename"
-    }
-    res.render('create', {list});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get('/create', async (req, res) => {
+//   try {
+//     const list = {
+//       name:"fakename"
+//     }
+//     res.render('create', {list});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// router.get('/create', async (req, res) => {
+//   try {
+//     const listData = await List.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const list = listData.get({ plain: true });
+
+//     res.render('create', 
+//       {list,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/create', withAuth, async (req, res) => {
   // /api/lists
@@ -30,6 +52,7 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const listData = await List.destroy({
@@ -40,7 +63,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!listData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No list found with this id!' });
       return;
     }
 
