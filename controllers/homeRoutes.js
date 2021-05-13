@@ -27,27 +27,7 @@ router.get('/contact', async (req, res) => {
   }
 });
 
-router.get('/list/:id', async (req, res) => {
-  try {
-    const listData = await List.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
 
-    const list = projectData.get({ plain: true });
-
-    res.render('list', {
-      ...list,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -78,6 +58,29 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/create', async (req, res) => {
+  try {
+    // const listData = await List.findByPk(req.params.id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
+
+    // const list = listData.get({ plain: true });
+
+    res.render('create', 
+      {list,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/testing', async (req, res) => {
   try {
