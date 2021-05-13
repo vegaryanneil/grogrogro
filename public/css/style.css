@@ -41,13 +41,30 @@ nav {
 
 /* Landing */
 .main-content {
-  min-height: 90vh;
-  margin: auto;
-  width: 80%;
+  min-height: 70vh;
+  margin: 0px 8rem;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--text-color);
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+
+}
+
+#first-paragraph{
+  text-indent: 4%;
+  /* max-width: 90rem; */
+  text-align-last: center;
+}
+
+.second-content{
+  display: flex;
+  padding: 40px;
+  text-align-last: center;
 }
 
 .landingText h1 {
