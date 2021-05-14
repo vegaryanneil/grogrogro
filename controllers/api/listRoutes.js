@@ -13,27 +13,27 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
-router.get('/create/:id', async (req, res) => {
-  try {
-    const listData = await List.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// router.get('/create/:id', async (req, res) => {
+//   try {
+//     const listData = await List.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
 
-    const list = listData.get({ plain: true });
+//     const list = listData.get({ plain: true });
 
-    res.render('create', {
-      ...list,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('create', {
+//       ...list,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/create', withAuth, async (req, res) => {
   // /api/lists
