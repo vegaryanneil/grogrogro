@@ -13,7 +13,7 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
-// router.get('/create/:id', async (req, res) => {
+// router.get('/create', async (req, res) => {
 //   try {
 //     const listData = await List.findByPk(req.params.id, {
 //       include: [
@@ -26,8 +26,8 @@ const withAuth = require('../../utils/auth');
 
 //     const list = listData.get({ plain: true });
 
-//     res.render('create', {
-//       ...list,
+//     res.render('create', 
+//       {list,
 //       logged_in: req.session.logged_in,
 //     });
 //   } catch (err) {
@@ -51,6 +51,7 @@ router.post('/create', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
