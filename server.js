@@ -47,7 +47,7 @@ app.get('/api/list', (req, res) => {
       if (err) {
           throw err;
       }
-      res.json(JSON.parse(data)); //res.json(JSON.parse(listsdata));
+      res.json(JSON.parse(data));
   });
 })
 app.post('/api/list', (req, res) => {
@@ -56,20 +56,20 @@ app.post('/api/list', (req, res) => {
           throw err;
       }
       let list = JSON.parse(data);
-      const newList = {...req.body,id:uuidv1()}
-      list.push(newList);
+      const newNote = {...req.body,id:uuidv1()}
+      list.push(newNote);
       fs.writeFile('db/schema.sql', JSON.stringify(list), err => {
           if (err) {
               throw err;
           }
-          res.json(req.body) //res.json(list)
+          res.json(req.body)
       })
   });
 });
 
 app.delete('/api/list/:id', (req, res) => {
   //user wants to delete a list
-  //which list do they want to delete?
+  //which listdo they want to delete?
   //edit our "DB" to reflect the delete
 
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
@@ -78,14 +78,14 @@ app.delete('/api/list/:id', (req, res) => {
       }
       let list = JSON.parse(data);
       console.log(list);
-      let newlist = list.filter((list) => {
-          return req.params.id !== list.id;
+      let newList = list.filter((note) => {
+          return req.params.id !== note.id;
       });
       console.log(newList);
 
       fs.writeFile('db/schema.sql', JSON.stringify(newList), err => {
           console.log(err);
-          res.json({ok:true}) //res.json(list)
+          res.json({ok:true})
       })
   });
 })

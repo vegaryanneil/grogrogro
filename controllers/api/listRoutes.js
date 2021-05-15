@@ -36,56 +36,42 @@ router.get('/create', async (req, res) => {
 });
 
 router.post('/create', withAuth, async (req, res) => {
-  // /api/lists
   console.log('req.body', req.body);
 
   try {
     const newList = await List.create({
-    name: req.body.name,
+      // ...req.body,
+      name: req.body.name,
       user_id: req.session.user_id,
-    });
 
-    res.status(200).json(newList);
+    });
+    console.log(newList);
+    res.status(200).json(JSON.stringify(newList));
   } catch (err) {
     console.log('ERROR!', err);
     res.status(400).json(err);
   }
 });
 
-router.post('/', async (req, res) => {
-  try { 
-    const listData = await List.create({
-    name: req.body.name,
-  });
-  res.status(200).json(listData)
-} catch (err) {
-  res.status(400).json(err);
-}
-});
-
-// According to MVC, what is the role of this action method?
-// This action method is the Controller. It accepts input and sends data to the Model and the View.
-router.put('/list', async (req, res) => {
-  // Where is this action method sending the data from the body of the fetch request? Why?
-  // It is sending the data to the Model so that one dish can be updated with new data in the database.
+router.put('/:id', async (req, res) => {
+  // This is sending the data to the Model so that one dish can be updated with new data in the database.
   try {
     const list = await List.update(
     {
-      name: req.body.name,
+      name: req.body.list_name,
+      user_id: req.session.user_id,
     },
     {
       where: {
         id: req.params.id,
       },
     });
-    // If the database is updated successfully, what happens to the updated data below?
-    // The updated data (dish) is then sent back to handler that dispatched the fetch request.
+    // The updated data (list) is then sent back to handler that dispatched the fetch request.
     res.status(200).json(list);
   } catch (err) {
       res.status(500).json(err);
     };
 });
-
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
