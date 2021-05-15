@@ -62,13 +62,14 @@ router.put('/:id', async (req, res) => {
         where: {
           id: req.params.id,
         },
+        
       });
     // The updated data (list) is then sent back to handler that dispatched the fetch request.
     res.status(200).json(list);
   } catch (err) {
     res.status(500).json(err);
   }
-;
+});
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
