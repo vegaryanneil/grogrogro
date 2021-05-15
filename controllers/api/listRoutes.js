@@ -58,7 +58,7 @@ router.put('/:id', async (req, res) => {
   try {
     const list = await List.update(
     {
-      name: req.body.dish_name,
+      name: req.body.list_name,
       user_id: req.session.user_id,
     },
     {

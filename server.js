@@ -56,8 +56,8 @@ app.post('/api/list', (req, res) => {
           throw err;
       }
       let list = JSON.parse(data);
-      const newNote = {...req.body,id:uuidv1()}
-      list.push(newNote);
+      const newList = {...req.body,id:uuidv1()} // newNote =
+      list.push(newList);  //(newNote)
       fs.writeFile('db/schema.sql', JSON.stringify(list), err => {
           if (err) {
               throw err;
