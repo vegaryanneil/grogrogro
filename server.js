@@ -39,53 +39,53 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT));
 });
 
-app.get('/api/notes', (req, res) => {
+app.get('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if (err) {
           throw err;
       }
-      res.json(JSON.parse(data)); //res.json(JSON.parse(notesdata));
+      res.json(JSON.parse(data)); //res.json(JSON.parse(listsdata));
   });
 })
-app.post('/api/notes', (req, res) => {
+app.post('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if (err) {
           throw err;
       }
-      let notes = JSON.parse(data);
-      const newNote = {...req.body,id:uuidv1()}
-      notes.push(newNote);
-      fs.writeFile('db/schema.sql', JSON.stringify(notes), err => {
+      let list = JSON.parse(data);
+      const newList = {...req.body,id:uuidv1()}
+      list.push(newList);
+      fs.writeFile('db/schema.sql', JSON.stringify(list), err => {
           if (err) {
               throw err;
           }
-          res.json(req.body) //res.json(notes)
+          res.json(req.body) //res.json(list)
       })
   });
 });
 
-app.delete('/api/notes/:id', (req, res) => {
-  //user wants to delete a note
-  //which note do they want to delete?
+app.delete('/api/list/:id', (req, res) => {
+  //user wants to delete a list
+  //which list do they want to delete?
   //edit our "DB" to reflect the delete
 
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if(err) {
           throw err;
       }
-      let notes = JSON.parse(data);
-      console.log(notes);
-      let newNotes = notes.filter((note) => {
-          return req.params.id !== note.id;
+      let list = JSON.parse(data);
+      console.log(list);
+      let newlist = list.filter((list) => {
+          return req.params.id !== list.id;
       });
-      console.log(newNotes);
+      console.log(newList);
 
-      fs.writeFile('db/schema.sql', JSON.stringify(newNotes), err => {
+      fs.writeFile('db/schema.sql', JSON.stringify(newList), err => {
           console.log(err);
-          res.json({ok:true}) //res.json(notes)
+          res.json({ok:true}) //res.json(list)
       })
   });
 })
