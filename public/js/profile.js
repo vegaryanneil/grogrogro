@@ -3,19 +3,22 @@ const newFormHandler = async (event) => {
 
   const name = document.querySelector('#list-name').value.trim();
   // const needed_funding = document.querySelector('#project-funding').value.trim();
-  // const description = document.querySelector('#project-desc').value.trim();
+  // const description = document.querySelector('#list-desc').value.trim();
 
   if (name) {
     const response = await fetch(`/api/list/create`, {
       method: 'POST',
-      body: JSON.stringify({ name}),
+      body: JSON.stringify({ name }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/api/list/create');
+      var data = await response.json()
+      data = JSON.parse(data)
+
+      document.location.replace('/create/'+data.id);
     } else {
       alert('Failed to create list');
     }
