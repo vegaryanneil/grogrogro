@@ -3,8 +3,9 @@ const { List, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+  //console.log(req.session.loggedIn)
   try {
-    res.render('homepage');
+    res.render('homepage', {loggedIn: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -42,7 +43,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true,
+      loggedIn: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -59,32 +60,31 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/create', async (req, res) => {
+router.get('/create/:id', async (req, res) => {
   try {
-    // const listData = await List.findByPk(req.params.id, {
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
+    const listData = await List.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-    // const list = listData.get({ plain: true });
+    const list = listData.get({ plain: true });
 
     res.render('create', 
       {list,
-      // logged_in: req.session.logged_in,
+        loggedIn: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
 router.get('/testing', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all list and JOIN with user data
     const listData = await List.findAll({
       include: [
         {
@@ -101,6 +101,12 @@ router.get('/testing', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// Route for logging user out
+router.get("/logout", function(req, res) {
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = router;

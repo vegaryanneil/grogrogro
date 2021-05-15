@@ -15,15 +15,6 @@ Item.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-
-        // date_created: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        //     defaultValue: DataTypes.NOW,
-        // },
-        // quantity: {
-        //   type: DataTypes.FLOAT,
-        //   allowNull: false,
     
     user_id: {
     type: DataTypes.INTEGER,
