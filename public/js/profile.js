@@ -1,6 +1,11 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
+  document.getElementById('home').href = 'http://localhost:3001/';
+  document.getElementById('about').href = 'http://localhost:3001/about';
+  document.getElementById('contact').href = 'http://localhost:3001/contact';
+  // document.getElementById('home').href = 'http://localhost:3001/create';
+
   const name = document.querySelector('#list-name').value.trim();
   // const needed_funding = document.querySelector('#project-funding').value.trim();
   // const description = document.querySelector('#list-desc').value.trim();
@@ -15,10 +20,10 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      var data = await response.json()
-      data = JSON.parse(data)
+      var data = await response.json();
+      data = JSON.parse(data);
 
-      document.location.replace('/create/'+data.id);
+      document.location.replace('/create/' + data.id);
     } else {
       alert('Failed to create list');
     }
