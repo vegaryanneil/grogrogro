@@ -53,9 +53,14 @@ router.put('/:id', async (req, res) => {
   // This is sending the data to the Model so that one dish can be updated with new data in the database.
   try {
     const list = await List.update(
-      {
-        name: req.body.list_name,
-        user_id: req.session.user_id,
+
+    {
+      name: req.body.list_name,
+      user_id: req.session.user_id,
+    },
+    {
+      where: {
+        id: req.params.id,
       },
       {
         where: {
