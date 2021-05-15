@@ -62,10 +62,6 @@ router.put('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      {
-        where: {
-          id: req.params.id,
-        },
       }
     );
     // The updated data (list) is then sent back to handler that dispatched the fetch request.
