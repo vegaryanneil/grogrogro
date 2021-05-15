@@ -44,48 +44,49 @@ sequelize.sync({ force: false }).then(() => {
 
 app.get('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
-      if (err) {
-          throw err;
-      }
-      res.json(JSON.parse(data));
+    if (err) {
+      throw err;
+    }
+    res.json(JSON.parse(data));
   });
-})
+});
 app.post('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
+    if (err) {
+      throw err;
+    }
+    let list = JSON.parse(data);
+    const newList = { ...req.body, id: uuidv1() };
+    list.push(newList);
+    fs.writeFile('db/schema.sql', JSON.stringify(list), (err) => {
       if (err) {
-          throw err;
+        throw err;
       }
-      let list = JSON.parse(data);
-      const newNote = {...req.body,id:uuidv1()}
-      list.push(newNote);
-      fs.writeFile('db/schema.sql', JSON.stringify(list), err => {
-          if (err) {
-              throw err;
-          }
-          res.json(req.body)
-      })
+      res.json(req.body);
+    });
   });
 });
 
 app.delete('/api/list/:id', (req, res) => {
+  // maybe route to /create/:id
   //user wants to delete a list
   //which listdo they want to delete?
   //edit our "DB" to reflect the delete
 
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
-      if(err) {
-          throw err;
-      }
-      let list = JSON.parse(data);
-      console.log(list);
-      let newList = list.filter((note) => {
-          return req.params.id !== note.id;
-      });
-      console.log(newList);
+    if (err) {
+      throw err;
+    }
+    let list = JSON.parse(data);
+    console.log(list);
+    let newList = list.filter((note) => {
+      return req.params.id !== note.id;
+    });
+    console.log(newList);
 
-      fs.writeFile('db/schema.sql', JSON.stringify(newList), err => {
-          console.log(err);
-          res.json({ok:true})
-      })
+    fs.writeFile('db/schema.sql', JSON.stringify(newList), (err) => {
+      console.log(err);
+      res.json({ ok: true });
+    });
   });
-})
+});

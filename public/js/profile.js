@@ -8,6 +8,7 @@ saveItem.addEventListener("click", function(){
 
 const newFormHandler = async (event) => {
   event.preventDefault();
+
   const name = document.querySelector('#list-name').value.trim();
   // const needed_funding = document.querySelector('#project-funding').value.trim();
   // const description = document.querySelector('#list-desc').value.trim();
@@ -21,8 +22,11 @@ const newFormHandler = async (event) => {
       },
     });
     if (response.ok) {
-      var data = await response.json()
-      data = JSON.parse(data)
+
+      var data = await response.json();
+      data = JSON.parse(data);
+
+
       document.location.replace('/create/' + data.id);
     } else {
       alert('Failed to create list');
