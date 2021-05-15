@@ -5,10 +5,11 @@
   --text-color: #f2edd7;
 }
 /* Global Edits */
+*, *::before, *::after{box-sizing: border-box;}
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -44,15 +45,33 @@ nav {
   min-height: 70vh;
   margin: 0px 8rem;
   
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   color: var(--text-color);
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 700;
+  margin-top: 190px;
+}
 
+/* login page */
+
+#first_name{
+  padding: 38px 0px 0px 2px;
+}
+
+#last_name{
+  padding: 38px 0px 0px 2px;
+}
+
+#password{
+  padding: 31px 0px 0px 0px;
+}
+
+#email{
+  padding: 31px 0px 0px 0px;
 }
 
 #first-paragraph{
@@ -137,4 +156,8 @@ span {
   height: 30%;
   width: 80%;
   background-image: url(/images/grocery-photo.jpg);
+}
+
+.contact-title{
+  font-size: 0rem;
 }
