@@ -42,50 +42,50 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-app.get('/api/notes', (req, res) => {
+app.get('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if (err) {
           throw err;
       }
-      res.json(JSON.parse(data)); //res.json(JSON.parse(notesdata));
+      res.json(JSON.parse(data));
   });
 })
-app.post('/api/notes', (req, res) => {
+app.post('/api/list', (req, res) => {
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if (err) {
           throw err;
       }
-      let notes = JSON.parse(data);
+      let list = JSON.parse(data);
       const newNote = {...req.body,id:uuidv1()}
-      notes.push(newNote);
-      fs.writeFile('db/schema.sql', JSON.stringify(notes), err => {
+      list.push(newNote);
+      fs.writeFile('db/schema.sql', JSON.stringify(list), err => {
           if (err) {
               throw err;
           }
-          res.json(req.body) //res.json(notes)
+          res.json(req.body)
       })
   });
 });
 
-app.delete('/api/notes/:id', (req, res) => {
-  //user wants to delete a note
-  //which note do they want to delete?
+app.delete('/api/list/:id', (req, res) => {
+  //user wants to delete a list
+  //which listdo they want to delete?
   //edit our "DB" to reflect the delete
 
   fs.readFile('db/schema.sql', 'utf8', function read(err, data) {
       if(err) {
           throw err;
       }
-      let notes = JSON.parse(data);
-      console.log(notes);
-      let newNotes = notes.filter((note) => {
+      let list = JSON.parse(data);
+      console.log(list);
+      let newList = list.filter((note) => {
           return req.params.id !== note.id;
       });
-      console.log(newNotes);
+      console.log(newList);
 
-      fs.writeFile('db/schema.sql', JSON.stringify(newNotes), err => {
+      fs.writeFile('db/schema.sql', JSON.stringify(newList), err => {
           console.log(err);
-          res.json({ok:true}) //res.json(notes)
+          res.json({ok:true})
       })
   });
 })

@@ -15,7 +15,10 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/api/list/create');
+      var data = await response.json()
+      data = JSON.parse(data)
+
+      document.location.replace('/create/'+data.id);
     } else {
       alert('Failed to create list');
     }

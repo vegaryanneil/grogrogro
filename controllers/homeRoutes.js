@@ -59,18 +59,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/create', async (req, res) => {
+router.get('/create/:id', async (req, res) => {
   try {
-    // const listData = await List.findByPk(req.params.id, {
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
+    const listData = await List.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-    // const list = listData.get({ plain: true });
+    const list = listData.get({ plain: true });
 
     res.render('create', 
       {list,
