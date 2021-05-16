@@ -124,6 +124,10 @@ span {
 #login-btn {
   background-color: var(--button-color);
 }
+
+#logout-btn {
+  background-color: var(--button-color);
+}
 /* Color Hierarchy in Text for Section */
 span {
   color: var(--button-color);
@@ -158,6 +162,33 @@ span {
   background-image: url(/images/grocery-photo.jpg);
 }
 
-.contact-title{
-  font-size: 0rem;
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text-color);
+  margin: 0px 0px;
+}
+
+.contact h1{
+  justify-items: center;
+  text-align: center;
+}
+
+.container{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-top: 100px;
+/* margin: 30px 55px; */
+/* margin-left: 20px; */
+
+}
+
+.contact-list{
+  margin-right: 0px;
+}
+
+.contact p{
+  font-size: 1.5rem;
 }
