@@ -20,10 +20,6 @@ List.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // quantity: {
-    //   type: DataTypes.FLOAT,
-    //   allowNull: false,
-    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
