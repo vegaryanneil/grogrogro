@@ -117,7 +117,7 @@ span {
   background-color: var(--text-color);
   display: flex;
   flex-direction: column;
-  min-width: 80%;
+  min-width: 80vh;
   align-items: center;
 }
 
@@ -158,5 +158,15 @@ span {
 .create-container {
   min-width: 80vh;
   min-height: 90vh;
-  display: flex;
+  display: block;
+}
+
+.container-fluid {
+  display: block;
+}
+
+.grocery-textarea {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+  min-height: 70vh;
 }
