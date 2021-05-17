@@ -13,7 +13,7 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
-router.get('/create', async (req, res) => {
+router.get('/create', async (req, res) => {  // '/create/:id'
   try {
     const listData = await List.findByPk(req.params.id, {
       include: [
@@ -26,7 +26,10 @@ router.get('/create', async (req, res) => {
 
     const list = listData.get({ plain: true });
 
-    res.render('create', { list, logged_in: req.session.logged_in });
+    res.render('create', 
+    {list,  // ...list
+    logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -38,11 +41,11 @@ router.post('/create', withAuth, async (req, res) => {
   try {
     const newList = await List.create({
       // ...req.body,
-      name: req.body.name,
+      name: req.body.name, //this is a new line
       user_id: req.session.user_id,
     });
     console.log(newList);
-    res.status(200).json(JSON.stringify(newList));
+    res.status(200).json(JSON.stringify(newList)); //res.status(200).json(newList);
   } catch (err) {
     console.log('ERROR!', err);
     res.status(400).json(err);
@@ -54,7 +57,7 @@ router.put('/:id', async (req, res) => {
   try {
     const list = await List.update(
       {
-        name: req.body.list_name,
+        name: req.body.list_name,  //.list_name
         user_id: req.session.user_id,
       },
       {

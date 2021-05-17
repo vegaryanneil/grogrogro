@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   //console.log(req.session.loggedIn)
   try {
-    res.render('homepage', {loggedIn: req.session.logged_in});
+    res.render('homepage'); //res.render('homepage', {loggedIn: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,8 +28,6 @@ router.get('/contact', async (req, res) => {
   }
 });
 
-
-
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -43,7 +41,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      loggedIn: req.session.logged_in
+      logged_in: true, // loggedIn: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);

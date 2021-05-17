@@ -1,10 +1,9 @@
 console.log("page loaded")
-const saveItem = document.querySelector("#save-Item");
+// const saveItem = document.querySelector("#save-Item");
 
-saveItem.addEventListener("click", function(){
-  console.log("saveItem clicked")
-})
-
+// saveItem.addEventListener("click", function(){
+//   console.log("saveItem clicked")
+// });
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -21,24 +20,25 @@ const newFormHandler = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-    if (response.ok) {
 
+    if (response.ok) {
       var data = await response.json();
       data = JSON.parse(data);
 
-
-      document.location.replace('/create/' + data.id);
+      document.location.replace('/create/' + data.id); // /profile/
     } else {
       alert('Failed to create list');
     }
   }
 };
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
     const response = await fetch(`/api/list/${id}`, {
       method: 'DELETE',
     });
+
     if (response.ok) {
       document.location.replace('/profile');
     } else {
