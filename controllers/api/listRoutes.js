@@ -44,6 +44,7 @@ router.post('/create', withAuth, async (req, res) => {
       name: req.body.name, //this is a new line
       user_id: req.session.user_id,
     });
+    res.redirect('/create/:id');
     console.log(newList);
     res.status(200).json(JSON.stringify(newList)); //res.status(200).json(newList);
   } catch (err) {
