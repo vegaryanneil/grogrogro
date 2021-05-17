@@ -58,6 +58,7 @@ router.put('/:id', async (req, res) => {
       name: req.body.list_name,
       user_id: req.session.user_id,
     });
+
     // The updated data (list) is then sent back to handler that dispatched the fetch request.
     res.status(200).json(list);
   } catch (err) {

@@ -7,7 +7,6 @@ saveItem.addEventListener('click', function () {
 
 const newFormHandler = async (event) => {
   event.preventDefault();
-
   const name = document.querySelector('#list-name').value.trim();
   // const needed_funding = document.querySelector('#project-funding').value.trim();
   // const description = document.querySelector('#list-desc').value.trim();
