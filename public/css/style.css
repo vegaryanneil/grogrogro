@@ -145,9 +145,18 @@ span {
 }
 
 .new-list-form {
-  display: block;
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   text-transform: uppercase;
   color: var(--text-color);
+}
+.note-bar {
+  background-color: var(--primary-color);
+}
+
+.create-container {
+  min-width: 80vh;
+  min-height: 90vh;
+  display: flex;
 }
