@@ -14,6 +14,7 @@ const withAuth = require('../../utils/auth');
 // });
 
 router.get('/create', async (req, res) => {
+  // res.redirect('/create/' + data.id);
   try {
     const listData = await List.findByPk(req.params.id, {
       include: [
@@ -41,6 +42,7 @@ router.post('/create', withAuth, async (req, res) => {
       name: req.body.name,
       user_id: req.session.user_id,
     });
+    res.redirect('/create/:id');
     console.log(newList);
     res.status(200).json(JSON.stringify(newList));
   } catch (err) {
@@ -52,18 +54,10 @@ router.post('/create', withAuth, async (req, res) => {
 router.put('/:id', async (req, res) => {
   // This is sending the data to the Model so that one dish can be updated with new data in the database.
   try {
-    const list = await List.update(
-
-      {
-        name: req.body.list_name,
-        user_id: req.session.user_id,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-        
-      });
+    const list = await List.update({
+      name: req.body.list_name,
+      user_id: req.session.user_id,
+    });
 
     // The updated data (list) is then sent back to handler that dispatched the fetch request.
     res.status(200).json(list);

@@ -5,11 +5,10 @@
   --text-color: #f2edd7;
 }
 /* Global Edits */
-*, *::before, *::after{box-sizing: border-box;}
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 body {
@@ -40,56 +39,28 @@ nav {
   text-transform: uppercase;
 }
 
-/* Landing */
+#login-btn {
+  background-color: var(--button-color);
+}
+
+#logout-btn {
+  background-color: var(--button-color);
+}
+
 .main-content {
-  min-height: 70vh;
-  margin: 0px 8rem;
-  
-  /* display: flex; */
+  min-height: 90vh;
+  min-width: 80vh;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: var(--text-color);
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  margin-top: 190px;
+  font-family: 'Oswald', sans-serif;
 }
 
-/* login page */
-
-#first_name{
-  padding: 38px 0px 0px 2px;
-}
-
-#last_name{
-  padding: 38px 0px 0px 2px;
-}
-
-#password{
-  padding: 31px 0px 0px 0px;
-}
-
-#email{
-  padding: 31px 0px 0px 0px;
-}
-
-#first-paragraph{
-  text-indent: 4%;
-  /* max-width: 90rem; */
-  text-align-last: center;
-}
-
-.second-content{
-  display: flex;
-  padding: 40px;
-  text-align-last: center;
-}
-
+/* Landing */
 .landingText h1 {
   font-family: 'Oswald', serif;
-  font-size: 3rem;
-  text-align: center;
+  font-size: 4rem;
   margin: auto;
 }
 
@@ -110,39 +81,44 @@ nav {
 
 #landing-btn {
   display: flex;
+}
+
+span {
+  color: var(--button-color);
+}
+
+/* About Page */
+.about-page-text {
+  font-size: 1.5rem;
+  max-width: 90vh;
+}
+.about-page-text h1 {
+  font-size: 4rem;
+  color: var(--text-color);
+}
+/* Contact Page */
+
+.contact-heading {
+  justify-items: center;
+  text-align: center;
+  font-size: 4rem;
+  color: var(--text-color);
+}
+
+.contact-content {
+  display: flex;
   flex-direction: column;
 }
 
-/* space in span tag */
-
-span {
-  color: var(--button-color);
-  display: block;
-  margin: 0px 1rem;
-}
-
-#login-btn {
-  background-color: var(--button-color);
-}
-
-#logout-btn {
-  background-color: var(--button-color);
-}
-/* Color Hierarchy in Text for Section */
-span {
-  color: var(--button-color);
-}
+/* login page */
 
 /* Login Page */
 .login-container {
   background-color: var(--text-color);
   display: flex;
-  padding-top: 0;
-}
-
-.login-form-container {
-  padding: 0 4rem;
-  justify-content: center;
+  flex-direction: column;
+  min-width: 80%;
+  align-items: center;
 }
 
 .login-page-text {
@@ -155,40 +131,23 @@ span {
   background-color: var(--button-color) !important;
 }
 
-/* about */
-.image {
-  height: 30%;
-  width: 80%;
-  background-image: url(/images/grocery-photo.jpg);
+/* Profile CSS */
+.listForm {
+  display: block;
+  font-size: 2rem;
+  margin: 4rem 0;
 }
 
-.contact{
+.profile-name {
   display: flex;
+  min-width: 80vh;
+  min-height: 90vh;
+}
+
+.new-list-form {
+  display: block;
   flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  text-transform: uppercase;
   color: var(--text-color);
-  margin: 0px 0px;
-}
-
-.contact h1{
-  justify-items: center;
-  text-align: center;
-}
-
-.container{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin-top: 100px;
-/* margin: 30px 55px; */
-/* margin-left: 20px; */
-
-}
-
-.contact-list{
-  margin-right: 0px;
-}
-
-.contact p{
-  font-size: 1.5rem;
 }
