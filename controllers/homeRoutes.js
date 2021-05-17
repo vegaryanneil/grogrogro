@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   //console.log(req.session.loggedIn)
   try {
-    res.render('homepage', {loggedIn: req.session.logged_in});
+    res.render('homepage', { loggedIn: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,8 +28,6 @@ router.get('/contact', async (req, res) => {
   }
 });
 
-
-
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -43,7 +41,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      loggedIn: req.session.logged_in
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -73,10 +71,8 @@ router.get('/create/:id', async (req, res) => {
 
     const list = listData.get({ plain: true });
 
-    res.render('create', 
-      {list,
-        loggedIn: req.session.logged_in
-    });
+    res.render('create', { list, loggedIn: req.session.logged_in });
+    document.location.replace('/create/' + data.id);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -104,9 +100,9 @@ router.get('/testing', async (req, res) => {
 });
 
 // Route for logging user out
-router.get("/logout", function(req, res) {
+router.get('/logout', function (req, res) {
   req.session.destroy();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 module.exports = router;
