@@ -114,11 +114,11 @@ span {
 
 /* Login Page */
 .login-container {
-  background-color: var(--text-color);
   display: flex;
   flex-direction: column;
   min-width: 80vh;
-  align-items: center;
+  align-items: left;
+  background-color: var(--text-color);
 }
 
 .login-page-text {
@@ -149,7 +149,6 @@ span {
   flex-direction: column;
   flex-wrap: wrap;
   text-transform: uppercase;
-  color: var(--text-color);
 }
 .note-bar {
   background-color: var(--primary-color);
